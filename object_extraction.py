@@ -20,8 +20,9 @@ try:
     import argparse
     from glob import glob
     import configparser
-    from progressbar import progressbar
-    from multiprocessing import Pool
+    # from progressbar import progressbar
+    from tqdm import tqdm
+    from multiprocessing.pool import Pool as MyPool
     from functools import partial
 
 except  ModuleNotFoundError as err:
@@ -511,7 +512,7 @@ def process_arguments(args):
 
 def main(imgfns,kwargs):
     if kwargs['num_cores']>1:
-        with Pool(kwargs['num_cores']) as p:
+        with MyPool(kwargs['num_cores']) as p:
             # partial erstellt eine Funktion mit einem einzigen Argument, dem Dateinamen
             # p.map verteilt die Berechnung auf num_cores Kerne
             del kwargs['num_cores']
@@ -521,10 +522,9 @@ def main(imgfns,kwargs):
     else:
         del kwargs['num_cores']
         if 'write_summary_file' in kwargs: del kwargs['write_summary_file']
-        for fn in progressbar(imgfns):
-            continue_the_loop = process_file(fn,**kwargs)
-
-            if not continue_the_loop: 
+        for fn in tqdm(imgfns, desc="Processing images"):
+            continue_the_loop = process_file(fn, **kwargs)
+            if not continue_the_loop:
                 break
     outputpath_Ausschnitte = kwargs['outputpath']
     logger.info(f'Die Bildausschnitte wurden hierher kopiert: {outputpath_Ausschnitte}')
