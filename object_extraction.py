@@ -277,8 +277,8 @@ def save_regionlist_to_folder(fn,regionlist,regions,outputpath,write_summary_fil
         if region.num_pixels<= min_num_pixels: #region.num_pixels<= min_num_pixels, regA.shape[0]*regA.shape[1]?  
             logger.info(f'skipping region: num_pix={region.num_pixels},shape:{regA.shape},area:{region.area}, as num_pix is < {min_num_pixels}')
             continue
-        #erstelle einen Dateinamen auf der Basis des Elternnamens, so dass allfÃƒÂ¤llige Klassennamen immer noch an der richtigen Stelle (zuletzt, hinter dem letzten "_") stehen.
-        region_filename = insert_region_number(fnpart,ireg)
+        #erstelle einen Dateinamen auf der Basis des Elternnamens, so dass allfällige Klassennamen immer noch an der richtigen Stelle (zuletzt, hinter dem letzten "_") stehen.
+        region_filename = insert_region_number(fnpart,ireg) #TODO: Fix
 
         assert os.path.exists(outputpath),f'Der Pfad {outputpath} sollte existieren.'
         outfile = os.path.join(outputpath,region_filename)
