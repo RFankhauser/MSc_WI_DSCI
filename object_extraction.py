@@ -12,7 +12,7 @@ try:
     import logging
     from skimage.transform import resize
     from skimage.io import imsave
-    from skimage.morphology import erosion,closing,area_closing,closing,opening,dilation
+    from skimage.morphology import erosion,closing,area_closing,opening,dilation
     from skimage.morphology import square
     from skimage.measure import label, regionprops, regionprops_table
     import pdb
