@@ -9,15 +9,15 @@
 
 ## To do's
 
-1. Installiere UV
+1. UV (Package Manager) Installieren
     ```
     https://docs.astral.sh/uv/getting-started/installation/
     ```
 
-2. Lade alle Packages und die korrekte Python version
+2. Abhängigkeiten und Python Version mit UV installieren
     ```
     uv sync
     ```
-Info: Alle Packages inkl. Version sind im File .python-version und pyproject.toml zu finden.
+    Info: Alle Packages inkl. Version sind im File .python-version und pyproject.toml zu finden.
 
-3. Alle Pfade müssen angepast und an die eigenen Strukturen angepasst werden
+3. Pfade im Code anpassen (z. B. zu Datenordnern, Ausgabepfaden, etc.)
