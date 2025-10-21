@@ -4,7 +4,7 @@
 
 1. clone Repository mit GitHub Desktop
     ```
-    https://github.com/RFankhauser/MSc_WI_BINA.git
+    https://github.com/RFankhauser/MSc_WI_DSCI.git
     ```
 
 ## To do's
